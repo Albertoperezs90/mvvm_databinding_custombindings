@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
+        xmlns:android="http://schemas.android.com/apk/res/android"
+>
+
+    <data>
+        <variable name="model" type="com.tutorial.aperezsi.mvvm_beers.viewmodel.BeerViewModel" />
+        <variable name="position" type="int" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout android:layout_width="match_parent"
+                                                       android:layout_height="wrap_content">
+
+
+        <TextView
+                android:text="@{model.getBeer(position).name}"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:textSize="18sp"
+                android:textColor="@android:color/black"
+                android:fontFamily="sans-serif-medium"
+                android:id="@+id/tvBeerName"
+                app:layout_constraintTop_toTopOf="parent" app:layout_constraintEnd_toEndOf="parent"
+                android:layout_marginEnd="8dp" android:layout_marginRight="8dp"
+                app:layout_constraintStart_toEndOf="@+id/ivBeer" android:layout_marginLeft="8dp"
+                android:layout_marginStart="8dp" android:layout_marginTop="8dp"/>
+        <ImageView
+                app:imageUrl="@{model.getBeer(position).image_url}"
+                android:layout_width="50dp"
+                android:layout_height="0dp" tools:srcCompat="@tools:sample/avatars"
+                android:id="@+id/ivBeer"
+                app:layout_constraintTop_toTopOf="@+id/tvBeerName" app:layout_constraintStart_toStartOf="parent"
+                android:layout_marginLeft="8dp" android:layout_marginStart="8dp"
+                app:layout_constraintBottom_toBottomOf="@+id/tvBeerDesc"/>
+        <TextView
+                android:text="@{model.getBeer(position).description}"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:textSize="15sp"
+                android:fontFamily="sans-serif-medium"
+                android:id="@+id/tvBeerDesc"
+                app:layout_constraintTop_toBottomOf="@+id/tvBeerName" app:layout_constraintStart_toEndOf="@+id/ivBeer"
+                android:layout_marginLeft="8dp" android:layout_marginStart="8dp"
+                app:layout_constraintEnd_toEndOf="parent" android:layout_marginEnd="8dp"
+                android:layout_marginRight="8dp"
+        />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

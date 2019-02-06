@@ -1,0 +1,4 @@
+<resources>
+    <string name="app_name">mvvm_beers</string>
+    <string name="empty_beers">No hay ninguna cerveza :(</string>
+</resources>
